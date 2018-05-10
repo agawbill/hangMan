@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,sCAAQ;EACN,OAAO,EAAE,KAAK;EACd,aAAa,EAAE,eAAe",
+"sources": ["../stylesheets/_wordBlocks.scss"],
+"names": [],
+"file": "main.css"
+}
