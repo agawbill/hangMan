@@ -1,40 +1,75 @@
 
-var wrapper=document.getElementsByClassName("wrapper")[0];
-var container=document.getElementsByClassName("container")[0];
-var keys1
+var wrapperText=document.getElementsByClassName("wrapperText")[0];
+var spaces=document.getElementsByClassName("spaces")[0];
+var loading=document.getElementsByClassName("loading")[0];
+var hintTextDiv=document.getElementsByClassName("hintTextDiv")[0]
+var wrongLettersText=document.getElementsByClassName("wrongLettersText")[0];
+var winModal=document.getElementsByClassName("winModal")[0];
+var loseModal=document.getElementsByClassName("loseModal")[0];
+var countDown=document.getElementsByClassName("countDown")[0];
+var playAgain=document.getElementById("playAgain");
+var playAgain2=document.getElementById("playAgain2");
 
-var correct=[];
+
 var wrong=[];
-var word1="milk";
-// var letters=[]
+
+
+window.addEventListener("load",function(){
+ generateWord()
+ createKeyboard()
+ generateHint()
+})
 
 
 
-window.addEventListener("load", createKeyboard)
+var randomWord=""
+var randomHint=""
+var counter=5
 
-  var alphabet=['a','b','c','d','e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+
+  function generateWord(){
+    var words= ["milk", "lamp", "silk", "felt", "purple", "water", "cellphone", "dog"]
+    var hints=["It's something white that you drink","You turn this on, and things get brighter", "A super smooth fabric", "Past tense for feel", "It's the color of grape jelly", "It's wet and you swim in it", "You talk on this", "It has four legs and is man's best friend"]
+    var randI=Math.floor(Math.random() * words.length)
+    randomWord=(words[randI])
+    randomHint=hints[randI]
+  }
+
+
+
 
 function createKeyboard(){
 
-
-  for(i=0; i<alphabet.length; i++){
+  for(i=0; i<randomWord.length; i++){
         var keys1= document.createElement('div');
         keys1.style.display="inline-block";
-        // this is set to inline block for now just so I can see them being dynamically created and experiment in the console
-        keys1.style.border= "2px solid red";
+        keys1.style.marginRight="14px";
+        keys1.style.marginBottom="14px";
+        keys1.style.marginTop="0px";
+        keys1.style.textAlign="center";
+        keys1.style.paddingTop="10px";
+        keys1.style.paddingBottom="10px";
+        keys1.style.borderRadius="10px";
+        keys1.style.fontWeight="bold";
+        keys1.style.boxShadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+        keys1.style.zIndex="0";
+        keys1.style.background="rgba(255,255,255,0.7)";
+        keys1.style.positon="absolute";
         keys1.style.width= "40px";
-        keys1.style.height="40px";
-        keys1.innerHTML=alphabet[i];
-        keys1.style.backgroundColor="blue";
-        keys1.className="div"+[i]
-        wrapper.appendChild(keys1);
-        // letters.push(keys1.className);
+        keys1.style.columnGap= "10px";
+        keys1.style.height="35px";
+        keys1.style.fontSize="0px";
+        keys1.innerHTML=randomWord[i];
+        keys1.className="div";
+        wrapperText.appendChild(keys1);
+
       }
 
 }
 
-function myFunction(){
-  container.innerHTML=alphabet[i]
+function generateHint(){
+  hintTextDiv.innerHTML="Hint:  " +randomHint
 }
 
 
@@ -42,33 +77,61 @@ function myFunction(){
 window.addEventListener('keypress', function(event){
         rightFunction(event.key)
         wrongFunction(event.key)
-})
-var wrongArray = [];
 
+})
+
+var wrongArray = [];
+var correctArray = [];
+
+
+  var newCounter=0
 
 
 function rightFunction(x){
-
-    for(let i = 0 ;i<alphabet.length;i++){
-      // i want to create a for loop to iterate through the dynamically created divs
-        if(keys1[i].innerHTML == String(x) ){
-        // essentially, what i want to create here is a conditional statement that checks to see if the value of the dynamically created div's innerHTML is the same as the keystroke...
-        // it would then return something along the lines of this...
-        return keys1[1].style.display="none"
+  var keys1=document.querySelectorAll(".div")
+    for(let i = 0;i<keys1.length;i++){
+        if(keys1[i].innerHTML == String(x)){
+         keys1[i].style.fontSize="35px"
+         correctArray.push(x)
+         newCounter+=1
         }
-
+        console.log(newCounter)
+        if(newCounter==randomWord.length){
+         return winModal.style.display="block"
     }
 
+}
 }
 
 
 function wrongFunction(x){
 
+  if(randomWord.indexOf(x) == -1){
+      wrongArray.push(x)
+      wrongLettersText.innerHTML="Wrong Letters: " +wrongArray.join(", ")
+      counter=counter-1
+      countDown.innerHTML="Chances: "+counter
+
+  }
+
+
   if(wrongArray.length==5){
-      return letter1.innerHTML="FAIL"
+      return loseModal.style.display="block"
     }
-    else if(correct.indexOf(x) == -1){
-        wrongArray.push(x)
-    }
+
+
+}
+
+
+playAgain.addEventListener("click", playGameAgain)
+
+function playGameAgain(){
+  location.reload()
+
+}
+playAgain2.addEventListener("click", playGameAgain)
+
+function playGameAgain(){
+  location.reload()
 
 }
