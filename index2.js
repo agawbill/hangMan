@@ -51,8 +51,7 @@ function createKeyboard(){
         keys1.innerHTML=alphabet[i];
         keys1.style.backgroundColor="blue";
         keys1.className="letter1" + [i]
-        letter1.appendChild(keys1);
-        letters.push(keys1.className);
+        wrapper.appendChild(keys1);
       }
 
 }
@@ -60,6 +59,23 @@ function createKeyboard(){
 function myFunction(){
   container.innerHTML=alphabet[i]
 }
+
+// window.setTimeout(function(){
+//   createKeyboard()
+//   generateHint()
+//   hideLoad()
+//
+// }, 3000)
+
+
+
+// function hideLoad(){
+//   loading.style.display="none"
+// }
+//
+
+
+// window.addEventListener("load",  createKeyboard)
 
 
 
@@ -153,3 +169,51 @@ function wrongFunction(x){
     }
 
 }
+
+
+
+
+// saved
+
+
+
+function rightFunction(x){
+var keys1=document.querySelectorAll(".div")
+    for(let i = 0,  j=0 ;i<keys1.length, j<randomWord.length;i++, j++){
+        if(keys1[i].innerHTML == String(x) && randomWord[j]== x){
+         keys1[i].style.fontSize="30px"
+
+        }
+
+    }
+
+}
+
+
+function wrongFunction(x){
+
+  if(wrongArray.length==5){
+      return wrapper.innerHTML="FAIL"
+    }
+    else if(randomWord.indexOf(x) == -1){
+        wrongArray.push(x)
+        wrongLetters.innerHTML=wrongArray
+    }
+
+}
+
+
+
+
+
+// function thirdFunction(x){
+// for(let i=0; i<randomWord.length; i++){
+//   if(correctArray.length==randomWord.length){
+//       return wrapper.innerHTML="SUCCESS"
+//     }
+//     else if(randomWord.indexOf(x) == i && correctArray.indexOf(x) == -1){
+//         correctArray.push(x)
+//
+//     }
+//   }
+// }
