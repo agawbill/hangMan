@@ -1,0 +1,195 @@
+body {
+  background-image: url(bodyBG.png);
+  background-size: cover; }
+
+.bannerText {
+  position: absolute;
+  left: 29%;
+  color: #C2BFBF;
+  text-shadow: 2px 2px 4px #000000;
+  font-family: serif;
+  font-size: 80px;
+  width: 50%; }
+
+.wrapper {
+  position: relative;
+  top: 95px;
+  z-index: 0;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  background-image: url(wheel.jpg);
+  border: 1px solid black;
+  background-size: 100% 100%;
+  font-family: serif;
+  margin: 0 auto;
+  height: 500px;
+  width: 45%; }
+
+.wrapperText {
+  position: absolute;
+  height: 10px;
+  width: 40%;
+  top: 20px;
+  left: 2%; }
+
+.hintTextDiv {
+  position: absolute;
+  height: 10px;
+  width: 90%;
+  top: 36%;
+  left: 2%; }
+
+.hintDiv {
+  position: absolute;
+  bottom: 5%;
+  left: 1.5%;
+  font-size: 15px;
+  font-family: serif;
+  font-weight: bold;
+  z-index: 0;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: serif;
+  height: 60px;
+  width: 50%; }
+
+.wrongLetters {
+  position: absolute;
+  bottom: 5%;
+  right: 1.5%;
+  font-size: 15px;
+  font-family: serif;
+  font-weight: bold;
+  z-index: 0;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: serif;
+  height: 70px;
+  width: 30%; }
+
+.wrongLettersText {
+  position: absolute;
+  height: 10px;
+  width: 90%;
+  bottom: 20%;
+  left: 2%; }
+
+.countDown {
+  position: absolute;
+  height: 10px;
+  width: 90%;
+  top: 9.5%;
+  left: 2%; }
+
+.instructionsDiv {
+  position: absolute;
+  top: 5%;
+  right: 1.5%;
+  font-size: 15px;
+  font-family: serif;
+  font-weight: bold;
+  z-index: 0;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: serif;
+  margin: 0 auto;
+  height: 150px;
+  width: 40%; }
+
+.instructionsDivText {
+  position: absolute;
+  height: 150x;
+  width: 95%;
+  top: 10%;
+  right: 2%; }
+
+.loseModal {
+  margin: 0 auto;
+  position: relative;
+  display: none;
+  top: 60px;
+  z-index: 1;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  opacity: 0.9;
+  background-image: url(modalBG.jpg);
+  background-size: fill;
+  width: 60%;
+  height: 400px; }
+
+.loseModalText {
+  position: absolute;
+  font-family: serif;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  top: 20%;
+  left: 14%;
+  text-align: center;
+  font-size: 55px; }
+
+.winModal {
+  margin: 0 auto;
+  position: relative;
+  display: none;
+  top: 60px;
+  z-index: 1;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  opacity: 0.9;
+  background-image: url(modalBG.jpg);
+  background-size: fill;
+  width: 60%;
+  height: 400px; }
+
+.modalText {
+  position: absolute;
+  font-family: serif;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  top: 20%;
+  left: 4%;
+  text-align: center;
+  font-size: 55px; }
+
+#playAgain {
+  position: absolute;
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 40px;
+  left: 33%;
+  bottom: 90px; }
+
+#playAgain:hover {
+  cursor: pointer;
+  color: pink; }
+
+#playAgain2 {
+  position: absolute;
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 40px;
+  left: 33%;
+  bottom: 90px; }
+
+#playAgain2:hover {
+  cursor: pointer;
+  color: pink; }
+
+/*# sourceMappingURL=main.css.map */
